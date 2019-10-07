@@ -43,7 +43,7 @@ public class CountryPopulationController
         return new ResponseEntity<>(countries.get(0), HttpStatus.OK);
     }
 
-    //  "/median"
+    //  "/median" - Stretch Goal
     @GetMapping(value = "/median", produces = "application/json")
     public ResponseEntity<?> findMedianPopulation()
     {

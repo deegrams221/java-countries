@@ -11,7 +11,7 @@ public class CountriesApplication
 
     public static void main(String[] args)
     {
-        // instantiate the objcect
+        // instantiate the object
         myCountryList = new CountryList();
         SpringApplication.run(CountriesApplication.class, args);
     }
