@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
+// Bean
 @RequestMapping("/population")
 public class CountryPopulationController
 {
@@ -18,7 +19,8 @@ public class CountryPopulationController
     public ResponseEntity<?> getCountriesByNameLength(@PathVariable long people)
     {
         // array list
-        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c -> c.getPopulation() >= people);
+        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
+                c.getPopulation() >= people);
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }

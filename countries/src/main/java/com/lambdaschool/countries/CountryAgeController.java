@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
+// Bean
 @RequestMapping("/age")
 public class CountryAgeController
 {
@@ -17,6 +18,7 @@ public class CountryAgeController
     @GetMapping(value = "/age/{age}", produces = {"application/json"})
     public ResponseEntity<?> getCountriesByMedianAge(@PathVariable int age)
     {
+        // array list
         ArrayList<Country> countries = new ArrayList<>();
         countries = CountriesApplication.myCountryList.findCountries(c -> c.getMedianAge() >= age);
         countries.sort((c1, c2) -> c2.getMedianAge() - c1.getMedianAge());

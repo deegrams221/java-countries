@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
+// Bean
 @RequestMapping("/names")
 public class CountryNameController
 {
@@ -25,7 +26,8 @@ public class CountryNameController
     public ResponseEntity<?> getCountriesByFirstLetter(@PathVariable char letter)
     {
         // array list
-        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c -> c.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
+        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
+                c.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
@@ -35,7 +37,8 @@ public class CountryNameController
     public ResponseEntity<?> getCountriesBySize(@PathVariable int number)
     {
         // array list
-        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c -> c.getName().length() >= number);
+        ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
+                c.getName().length() >= number);
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }

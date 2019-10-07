@@ -227,6 +227,7 @@ public class CountryList
         return null;
     }
 
+    // array list
     public ArrayList<Country> findCountries(CheckCountry tester)
     {
         ArrayList<Country> tempCountryList = new ArrayList<Country>();
