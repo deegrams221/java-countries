@@ -4,9 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CountriesApplication {
+public class CountriesApplication
+{
+    // fields
+    static CountryList myCountryList;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        // instantiate the objcect
+        myCountryList = new CountryList();
         SpringApplication.run(CountriesApplication.class, args);
     }
 
