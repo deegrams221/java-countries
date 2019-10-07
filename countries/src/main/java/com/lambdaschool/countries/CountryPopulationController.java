@@ -21,6 +21,7 @@ public class CountryPopulationController
         // array list
         ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
                 c.getPopulation() >= people);
+        // sort
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
@@ -31,6 +32,7 @@ public class CountryPopulationController
     {
         // array list
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> (int) (c1.getPopulation() - c2.getPopulation()));
         return new ResponseEntity<>(countries.get(0), HttpStatus.OK);
     }
@@ -41,6 +43,7 @@ public class CountryPopulationController
     {
         // array list
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> (int) (c2.getPopulation() - c1.getPopulation()));
         return new ResponseEntity<>(countries.get(0), HttpStatus.OK);
     }
@@ -51,7 +54,9 @@ public class CountryPopulationController
     {
         // array list
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> (int) (c1.getPopulation() - c2.getPopulation()));
+        // divide size by 2
         int medianCountries = countries.size() / 2;
         return new ResponseEntity<>(countries.get(medianCountries), HttpStatus.OK);
     }

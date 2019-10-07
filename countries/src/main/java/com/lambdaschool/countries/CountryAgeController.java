@@ -21,6 +21,7 @@ public class CountryAgeController
         // array list
         ArrayList<Country> countries = new ArrayList<>();
         countries = CountriesApplication.myCountryList.findCountries(c -> c.getMedianAge() >= age);
+        // sort
         countries.sort((c1, c2) -> c2.getMedianAge() - c1.getMedianAge());
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
@@ -30,6 +31,7 @@ public class CountryAgeController
     public ResponseEntity<?> getMinAges()
     {
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> c1.getMedianAge() - c2.getMedianAge());
         return new ResponseEntity<>(countries.get(0), HttpStatus.OK);
     }
@@ -39,6 +41,7 @@ public class CountryAgeController
     public ResponseEntity<?> getMaxAges()
     {
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> c2.getMedianAge() - c1.getMedianAge());
         return new ResponseEntity<>(countries.get(0), HttpStatus.OK);
     }
@@ -48,7 +51,9 @@ public class CountryAgeController
     public ResponseEntity<?> getMedianAges()
     {
         ArrayList<Country> countries = (ArrayList) CountriesApplication.myCountryList.countryList;
+        // sort
         countries.sort((c1, c2) -> c2.getMedianAge() - c1.getMedianAge());
+        // divide size by 2
         int medianCountries = countries.size() / 2;
         return new ResponseEntity<>(countries.get(medianCountries), HttpStatus.OK);
     }

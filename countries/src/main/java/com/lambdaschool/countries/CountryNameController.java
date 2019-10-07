@@ -28,6 +28,7 @@ public class CountryNameController
         // array list
         ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
                 c.getName().toUpperCase().charAt(0) == Character.toUpperCase(letter));
+        // sort
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
@@ -39,6 +40,7 @@ public class CountryNameController
         // array list
         ArrayList<Country> countries = CountriesApplication.myCountryList.findCountries(c ->
                 c.getName().length() >= number);
+        // sort
         countries.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
